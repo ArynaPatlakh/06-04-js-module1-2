@@ -833,3 +833,37 @@
 // const arr2New = arr2.flat(2)
 // console.log(arr2New);
 // console.log(arr2)
+
+//!-----------------------------------------------------------------------------------------------------
+
+// const apartment = {
+//   rooms: 4,
+//   floor: 2,
+//   taxFree: false,
+// };
+
+// const condo = Object.create(apartment);
+// condo.rooms = 3;
+
+// console.log(condo.rooms)
+// console.log(apartment.rooms)
+
+//*-----------------------------------------------------------------------------------------------------
+
+// const ancestor = {
+//   name: "Paul",
+//   age: 83,
+//   surname: "Dawson",
+//   heritage: "Irish",
+// };
+
+// const parent = Object.create(ancestor);
+// parent.name = "Stacey";
+// parent.surname = "Moore";
+// parent.age = 54;
+
+// const child = Object.create(parent);
+// child.name = "Jason";
+// child.age = 27;
+
+//*-----------------------------------------------------------------------------------------------------
