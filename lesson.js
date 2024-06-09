@@ -867,3 +867,258 @@
 // child.age = 27;
 
 //*-----------------------------------------------------------------------------------------------------
+
+// class User {
+//   constructor(name, email) {
+// 		console.log(name, email);
+//   }
+// }
+
+// const mango = new User("Mango", "mango@mail.com"); // "Mango mango@mail.com"
+// console.log(mango); // {}
+
+//*-----------------------------------------------------------------------------------------------------
+// class Car {
+//   #brand;
+//   constructor(params) {
+//     this.#brand = params.brand;
+//     this.model = params.model;
+//     this.price = params.price;
+//   }
+
+//   getPrice() {
+//     return this.price;
+//   }
+
+//   changePrice(newPrice) {
+//     this.price = newPrice;
+//   }
+
+//   getBrand() {
+//     return this.#brand;
+//   }
+
+//   changeBrand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+// }
+
+// const newCar = new Car({ brand: "Audi", model: "Q3", price: 36000 }); // { model: "Q3", price: 36000 }
+// console.log(newCar)
+
+// const newCar2 = new Car({ brand: "bmw", model: "X5", price: 58900 }); //{ model: "X5", price: 58900 }
+// console.log(newCar2);
+
+// const newCar3 = new Car({ brand: "Nissan", model: "Murano", price: 31700 }); //{ model: "Murano", price: 31700 }
+// console.log(newCar3);
+
+// console.log(newCar.getBrand());
+// console.log(newCar.changeBrand('Mazda'));
+// console.log(newCar.getBrand());
+
+//*-----------------------------------------------------------------------------------------------------
+
+// class Car {
+//   #brand;
+//   #model;
+//   #price;
+
+//   constructor(params) {
+//     this.#brand = params.brand;
+//     this.#model = params.model;
+//     this.#price = params.price;
+//   }
+
+//   get brand() {
+//     return this.#brand;
+//   }
+
+//   set brand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+
+//   get model() {
+//     return this.model;
+//   }
+
+//   set model(newModel) {
+//     this.model = newModel;
+//   }
+
+//   get price() {
+//     return this.price;
+//   }
+
+//   set price(newPrice) {
+//     this.price = newPrice;
+//   }
+// }
+
+//*-----------------------------------------------------------------------------------------------------
+
+// class Car {
+//   #price;
+//   static maxPrice = 50000;
+
+//   constructor(params) {
+//     this.#price = params.price;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//     set price(newPrice) {
+
+//       if (Car.maxPrice >= newPrice) {
+//       return this.#price = newPrice;
+//     } else {return this.#price};
+//   }
+// }
+
+// const audi = new Car({ price: 35000 });
+// console.log(audi.price); // 35000
+
+// audi.price = 49000;
+// console.log(audi.price); // 49000
+
+// audi.price = 51000;
+// console.log(audi.price); // 49000
+
+//*-----------------------------------------------------------------------------------------------------
+
+// class Car {
+//   static #maxPrice = 50000;
+
+//   constructor(params) {
+//     this.price = params.price;
+//   }
+
+//     static checkPrice(price) {
+//         if (price >= this.#maxPrice) {
+//             return "Error! Price exceeds the maximum"
+//         } else { return "Success! Price is within acceptable limits"}
+//     }
+// }
+
+// const audi = new Car({ price: 36000 });
+// const bmw = new Car({ price: 64000 });
+
+// console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+// console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+
+//*-----------------------------------------------------------------------------------------------------
+
+// class User {
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   static role = { BASIC: "basic", SUPERUSER: "superuser" };
+// }
+
+//*-----------------------------------------------------------------------------------------------------
+
+// class User {
+//   email;
+//     access;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   static role = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser",
+//   };
+//     constructor(parms) {
+//         super(parms.email);
+//         this.access = parms.access
+//     }
+// }
+
+// const mango = new Admin({
+//   email: "mango@mail.com",
+//   access: Admin.role.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.access); // "superuser"
+
+//*-----------------------------------------------------------------------------------------------------
+
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   blacklistedEmails = [];
+//   static role = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser",
+//   };
+
+//   constructor(params) {
+//     super(params.email);
+//     this.access = params.access;
+//   }
+
+//   blacklist(email) {
+//     this.blacklistedEmails.push(email);
+//   }
+
+//   isBlacklisted(email) {
+//     if (this.blacklistedEmails.includes(email)) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   }
+// }
+
+// const mango = new Admin({
+//   email: "mango@mail.com",
+//   access: Admin.role.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.access); // "superuser"
+
+// mango.blacklist("poly@mail.com");
+// console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+// console.log(mango.isBlacklisted("mango@mail.com")); // false
+// console.log(mango.isBlacklisted("poly@mail.com")); // true
+
+//*-----------------------------------------------------------------------------------------------------
